@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:backgroundTint="@color/white"
+    android:layout_height="300dp"
+    android:layout_margin="10.6dp"
+    app:cardCornerRadius="16dp"
+    app:strokeColor="@color/black"
+    app:strokeWidth="1dp">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_marginTop="5dp"
+            android:layout_width="160dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:contentDescription="TODO"
+            android:background="@drawable/ic_person"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/productTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/productPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="12dp"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <RatingBar
+                android:id="@+id/productRatingBar"
+                style="@style/customRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:isIndicator="true"
+                android:progressTint="@color/yellow" />
+
+            <TextView
+                android:id="@+id/productReviewCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColorHint="#757575" />
+            <TextView
+                android:id="@+id/productCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColorHint="#757575" />
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/productDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10.6dp"
+            android:layout_marginTop="10.6dp"
+            android:layout_marginEnd="10.6dp"
+            android:layout_marginBottom="10.6dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textColorHint="#757575"
+            android:textSize="17sp" />
+
+
+
+    </LinearLayout>
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>
