@@ -35,8 +35,8 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.MyHolderView>() {
             //productDescription.text = post.productDescription
 
 
-            productTitle.text = product.productTitle
-            productPrice.text = product.productPrice.toString()
+            productTitle.text = product.title
+            productPrice.text = product.price.toString()
             //productRatingBar
             //productReviewCount
             //productDescription.text = product.productDescription
@@ -68,7 +68,7 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.MyHolderView>() {
     @SuppressLint("CheckResult")
     fun bindProductImage(product: Product, imageView: ImageView) {
         Glide.with(imageView)
-            .load(product.productImageUrl)
+            .load(product.imageUrl)
             .into(imageView)
     }
 

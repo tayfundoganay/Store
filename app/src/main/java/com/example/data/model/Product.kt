@@ -4,19 +4,20 @@ import com.google.gson.annotations.SerializedName
 
 data class Product(
 
-    @SerializedName("id")
-    val productId: Int?,
-    @SerializedName("title")
-    val productTitle: String?,
-    @SerializedName("price")
-    val productPrice: Double?,
-    @SerializedName("description")
-    val productDescription: String?,
-    @SerializedName("category")
-    val productCategory: String?,
+
+    val id: Int,
+    val title: String,
+    val price: Double,
+    val description: String,
+    val category: String,
     @SerializedName("image")
-    val productImageUrl: String?,
-    @SerializedName("rating")
-    val productRating: Rating?
+    val imageUrl: String,
+    val rating: Rating
 
 )
+{
+    data class Rating(
+        val ratingCount: Int,
+        val ratingPoint: Double
+    )
+}
