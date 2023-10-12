@@ -13,6 +13,10 @@ import com.example.data.model.Product
 
 class ProductAdapter : RecyclerView.Adapter<ProductAdapter.MyHolderView>() {
 
+    interface Listener {
+        fun onItemClick(product: Product)
+    }
+
     var liveData: List<Product>? = null
 
     fun setList(data: List<Product>) {
@@ -20,6 +24,9 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.MyHolderView>() {
     }
 
     class MyHolderView(view: View) : RecyclerView.ViewHolder(view) {
+
+
+
         val productTitle: TextView = view.findViewById(R.id.productTitle)
         val productPrice: TextView = view.findViewById(R.id.productPrice)
         //val productRating: TextView = view.findViewById(R.id.productRatingBar)
@@ -27,6 +34,8 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.MyHolderView>() {
         //val productCategory: TextView = view.findViewById(R.id.productCategory)
         val productImage: ImageView = view.findViewById(R.id.productImage)
         //val productImage: ImageView = view.findViewById(R.id.productImage)
+
+
         @SuppressLint("CheckResult")
         fun bindItems(product: Product) {
 
@@ -43,17 +52,22 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.MyHolderView>() {
             //productCategory.text = product.productCategory
 
 
+
+
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductAdapter.MyHolderView {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_product, parent, false)
         return MyHolderView(view)
     }
 
     override fun onBindViewHolder(holder: ProductAdapter.MyHolderView, position: Int) {
         holder.bindItems(liveData!!.get(position))
         bindProductImage(liveData!!.get(position), holder.productImage)
+
+
+
 
 
 

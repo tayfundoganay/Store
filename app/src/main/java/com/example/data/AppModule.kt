@@ -1,6 +1,6 @@
 package com.example.data
 
-import com.example.data.service.StoreServiceInstance
+import com.example.data.service.StoreServiceAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,9 +18,9 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun getStoreServiceInstance(retrofit: Retrofit): StoreServiceInstance
+    fun getStoreServiceInstance(retrofit: Retrofit): StoreServiceAPI
     {
-        return retrofit.create(StoreServiceInstance::class.java)
+        return retrofit.create(StoreServiceAPI::class.java)
     }
 
     @Singleton

@@ -1,13 +1,13 @@
 package com.example.data.service
 
 import com.example.data.model.Product
+import kotlinx.coroutines.flow.Flow
 import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Headers
 
-interface StoreServiceInstance {
+interface StoreServiceAPI {
 
     //@Headers("$API_KEY")
     @GET("products")
-    fun getPosts() : Call<List<Product>>
+    fun getProducts() : Call<List<Product>>
 }

@@ -1,61 +1,82 @@
 package com.example
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.example.databinding.ActivityMainBinding
+import com.example.ui.DashboardFragment
 import com.example.ui.ProductAdapter
-import com.example.ui.ProductViewModel
+import com.example.ui.ProductListFragment
+import com.example.ui.ProductListViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var navController : NavController
     val viewModel by lazy {
-        ViewModelProvider(this,defaultViewModelProviderFactory).get(ProductViewModel::class.java)
+        ViewModelProvider(
+            this,
+            defaultViewModelProviderFactory
+        ).get(ProductListViewModel::class.java)
     }
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var productAdapter: ProductAdapter
+    private lateinit var navView: BottomNavigationView
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var navHostFragment =
+
+        val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
+
+
         navController = navHostFragment.navController
 
+        navView = findViewById(R.id.nav_view)
+
+        navView.setupWithNavController(navController)
+
+        fun onSupportNavigateUp(): Boolean {
+            return navController.navigateUp() || super.onSupportNavigateUp()
+        }
+
+
+
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        navController = findNavController(R.id.navHostFragment)
-        return navController.navigateUp() || super.onSupportNavigateUp()
+    fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.navigation_home -> {
+                val productListFragment = ProductListFragment()
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.navHostFragment, productListFragment)
+                    .commit()
+                return true
+            }
+
+            R.id.navigation_dashboard -> {
+                val dashboardFragment = DashboardFragment()
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.navHostFragment, dashboardFragment)
+                    .commit()
+                // Handle dashboard click
+                return true
+            }
+
+        }
+        return false
     }
 
 
-        /*
-                productAdapter = ProductAdapter()
-                val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-                recyclerView.adapter = productAdapter
-                val gridLayoutManager : GridLayoutManager = GridLayoutManager(this,2)
-                recyclerView.setLayoutManager(gridLayoutManager)
-
-
-                viewModel.getLiveDataObserver().observe(this, object: Observer<List<Product>> {
-                    override fun onChanged(t: List<Product>?) {
-                        if (t != null)
-                        {
-                            productAdapter.setList(t)
-                            productAdapter.notifyDataSetChanged()
-                        }
-                    }
-                })*/
-
-        //viewModel.loadData()
 
 }

@@ -8,19 +8,15 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class ProductViewModel @Inject constructor(private val repository: StoreRepository) : ViewModel() {
+class ProductListViewModel @Inject constructor(private val repository: StoreRepository) : ViewModel() {
 
-    var liveData: MutableLiveData<List<Product>>
-
-    init {
-        liveData = MutableLiveData()
-    }
+    var liveData: MutableLiveData<List<Product>> = MutableLiveData()
 
     fun getLiveDataObserver(): MutableLiveData<List<Product>> {
         return liveData
     }
 
     fun loadData() {
-        repository.getPosts(liveData)
+        repository.getProducts(liveData)
     }
 }
