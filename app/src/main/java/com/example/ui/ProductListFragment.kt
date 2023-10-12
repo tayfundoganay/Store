@@ -1,5 +1,6 @@
 package com.example.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -34,6 +35,8 @@ class ProductListFragment : Fragment() {
         binding = FragmentProductListBinding.inflate(inflater, container, false)
         recyclerView = binding.recyclerView
 
+        //recyclerView.setOnClickListener(  ->)
+
 
 
         return binding.root
@@ -44,6 +47,7 @@ class ProductListFragment : Fragment() {
         // Use the NavController to navigate to the ProductDetailFragment
         findNavController().navigate(R.id.action_productListFragment_to_productDetailFragment)
     }
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
