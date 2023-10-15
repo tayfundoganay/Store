@@ -20,9 +20,16 @@
         android:label="fragment_product_detail"
         tools:layout="@layout/fragment_product_detail" />
     <fragment
-        android:id="@+id/dashboardFragment"
+        android:id="@+id/categoriesFragment"
         android:name="com.example.ui.CategoriesFragment"
-        android:label="DashboardFragment"
+        android:label="CategoriesFragment"
         tools:layout="@layout/fragment_categories"/>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.ui.CategoriesFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_categories"/>
+
 
 </navigation>

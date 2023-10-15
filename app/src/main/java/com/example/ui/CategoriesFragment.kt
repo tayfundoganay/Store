@@ -1,16 +1,29 @@
 package com.example.ui
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.databinding.FragmentCategoriesBinding
 
 class CategoriesFragment : Fragment() {
 
-    private lateinit var binding: FragmentCategoriesBinding
+    private var _binding: FragmentCategoriesBinding? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentCategoriesBinding.inflate(inflater, container, false)
 
-        binding = FragmentCategoriesBinding.inflate(layoutInflater)
+        return _binding!!.root
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }
