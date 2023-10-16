@@ -27,9 +27,34 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.ui.CategoriesFragment"
+        android:name="com.example.ui.profile.ProfileFragment"
         android:label="ProfileFragment"
-        tools:layout="@layout/fragment_categories"/>
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profile_to_login"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_profile_to_register"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.ui.auth.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.ui.auth.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_register_to_login"
+            app:destination="@id/loginFragment" />
+    </fragment>
 
 
 </navigation>

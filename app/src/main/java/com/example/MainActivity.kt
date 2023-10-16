@@ -13,6 +13,7 @@ import com.example.databinding.ActivityMainBinding
 import com.example.ui.CategoriesFragment
 import com.example.ui.ProductDetailFragment
 import com.example.ui.ProductListFragment
+import com.example.ui.profile.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -38,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.navigation_home -> replaceFragment(ProductListFragment())
                 R.id.navigation_categories -> replaceFragment(CategoriesFragment())
-                R.id.navigation_profile -> replaceFragment(ProductDetailFragment())
+                R.id.navigation_profile -> replaceFragment(ProfileFragment())
                 else -> {
 
                 }
