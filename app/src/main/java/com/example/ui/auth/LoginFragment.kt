@@ -12,8 +12,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.example.R
 import com.example.databinding.FragmentLoginBinding
 import com.example.ui.ProductListFragment
@@ -98,9 +96,6 @@ class LoginFragment : Fragment() {
                 }
             }
     }
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+
 
 }

@@ -7,26 +7,21 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import com.example.R
-import com.example.databinding.FragmentProfileBinding
+import com.example.databinding.FragmentLoggedInProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 
-class ProfileFragment : Fragment() {
-    private var _binding : FragmentProfileBinding? = null
-    private val binding get() = _binding!!
+class LoggedInProfileFragment : Fragment() {
 
-    private lateinit var fragmentTransaction: FragmentTransaction
+    private var _binding : FragmentLoggedInProfileBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentProfileBinding.inflate(inflater,container,false)
-        fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-
-
+        _binding = FragmentLoggedInProfileBinding.inflate(inflater,container,false)
         return binding.root
     }
 
@@ -36,17 +31,6 @@ class ProfileFragment : Fragment() {
         val firebaseAuth = FirebaseAuth.getInstance()
         // Giriş yapan kullanıcı bilgisini almak için `getCurrentUser()` metodunu kullanın
         val user = firebaseAuth.currentUser
-
-        // Giriş yapan kullanıcı bilgisi varsa, `LoggedInProfileFragment`'i ekleyin
-        if (user != null) {
-            fragmentTransaction.replace(R.id.profileFragmentContainer, LoggedInProfileFragment())
-            fragmentTransaction.commit()
-        } else {
-            // Giriş yapan kullanıcı bilgisi yoksa, `LoggedOutProfileFragment`'i ekleyin
-            fragmentTransaction.replace(R.id.profileFragmentContainer, LoggedOutProfileFragment())
-            fragmentTransaction.commit()
-        }
-
 
         // Giriş yapan kullanıcı bilgisi varsa, `profileFragment`'in içeriğini değiştirin
         if (user != null) {
@@ -63,22 +47,11 @@ class ProfileFragment : Fragment() {
 
                 // `profileFragment`'i iptal edin
                 requireActivity().supportFragmentManager.beginTransaction().remove(this).commit()
-            }
-        } else {
-            /*
-            binding.profileLoginRedirectText.setOnClickListener{
+
                 val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-                fragmentTransaction.replace(R.id.navHostFragment, LoginFragment())
+                fragmentTransaction.replace(R.id.navHostFragment, LoggedOutProfileFragment())
                 fragmentTransaction.commit()
             }
-            binding.profileSignupRedirectText.setOnClickListener{
-                val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-                fragmentTransaction.replace(R.id.navHostFragment, RegisterFragment())
-                fragmentTransaction.commit()
-            }
-*/
         }
-
     }
-
 }

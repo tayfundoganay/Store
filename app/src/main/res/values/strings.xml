@@ -26,4 +26,7 @@
     <string name="cancel">Cancel</string>
     <string name="enter_your_email_address">Enter your email address</string>
     <string name="reset">Reset</string>
+    <string name="log_out">Log Out</string>
+    <string name="current_user_e_mail">Current User E-mail</string>
+    <string name="logged_in">Logged in</string>
 </resources>

@@ -3,7 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="ui.profile.ProfileFragment">
+    tools:context="ui.profile.ProfileFragment"
+    android:orientation="horizontal">
+
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/profileFragmentContainer"/>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,11 +23,31 @@
         android:padding="20dp">
 
 
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailTextView"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/logoutButton"
+            android:layout_gravity="center"
+            android:text="@string/log_out"/>
+
+
+
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:src="@mipmap/ic_logo"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:contentDescription="@string/app_icon" />
 
 
 
