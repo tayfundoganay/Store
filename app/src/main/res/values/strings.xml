@@ -13,4 +13,20 @@
     <string name="menu_profile">Profile</string>
     <string name="todo">TODO</string>
     <string name="product_description">Description</string>
+    <string name="e_mail">E-Mail</string>
+    <string name="password">Password</string>
+    <string name="already_an_user_login">Already an user? Login</string>
+    <string name="not_yet_registered_signup">Not yet registered? Signup</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="fake_store_login">Fake Store Login</string>
+    <string name="fake_store_register">Fake Store Register</string>
+    <string name="login">Login</string>
+    <string name="cancel">Cancel</string>
+    <string name="enter_your_email_address">Enter your email address</string>
+    <string name="reset">Reset</string>
+    <string name="log_out">Log Out</string>
+    <string name="current_user_e_mail">Current User E-mail</string>
+    <string name="logged_in">Logged in</string>
 </resources>

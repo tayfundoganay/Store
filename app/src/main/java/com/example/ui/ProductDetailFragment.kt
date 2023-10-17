@@ -35,13 +35,7 @@ class ProductDetailFragment : Fragment() {
 
 
     }
-    fun observeLiveData(){
-        viewModel.getLiveDataObserver().observe(viewLifecycleOwner){ products ->
-            _binding?.detailProductImage
-
-
-            }
-        }
+    fun observeLiveData(){}
 
     override fun onDestroyView() {
         super.onDestroyView()
